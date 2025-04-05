@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f5f5f5;
+            background-color: black;
             overflow: hidden;
         }
         /* Loader Styles */
@@ -54,7 +54,7 @@
             display: none;
             flex-direction: column;
             align-items: center;
-            background: red;
+            background: Green;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -131,6 +131,23 @@
             padding: 20px;
             border-radius: 10px;
         }
+        .music-btn {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #00ff00;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    background-color: #00cc00;
+            }
     </style>
 </head>
 <body>
@@ -176,5 +193,21 @@
             }
         }
     </script>
+    <script>
+function toggleMusic() {
+    const audio = document.getElementById("backgroundSound");
+    const musicButton = document.getElementById("musicButton");
+
+    if (audio.paused) {
+        audio.muted = false; // Unmute when playing
+        audio.play();
+        musicButton.innerHTML = "⏸️"; // Change to pause icon
+    } else {
+        audio.pause();
+        musicButton.innerHTML = "▶️"; // Change back to play icon
+    }
+}
+    </script>
+    <audio id="backgroundSound" src="https://www.dropbox.com/scl/fi/1cbtg2jopdkmoa7zsauvd/VID_20250206_163846.mp3?rlkey=2jyyjm9xb6ntp424rmzpmh4zf&st=8a6cp0q5&dl=0" preload="auto" loop></audio>
 </body>
   </html>
